@@ -2,7 +2,7 @@ const router = require('express').Router();
 const apiRoutes = require('./api');
 const { Entry, User } = require('../models');
 
-router.use('./api', apiRoutes);
+router.use('/api', apiRoutes);
 
 router.get('/', async (req, res) => {
     const entryData = await Entry.findAll().catch((err) => {
@@ -10,9 +10,9 @@ router.get('/', async (req, res) => {
     });
     const entries = entryData.map((entry) => entry.get({ plain: true}));
 
-    res.render('index', {
+    res.render('entry', {
         logged_in:req.session.logged_in,
-        projects
+        entries
     })
 });
 
