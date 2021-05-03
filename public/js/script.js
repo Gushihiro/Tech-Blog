@@ -39,7 +39,8 @@ document.querySelector("#signupForm").addEventListener("submit",event=>{
     }).then(res=>{
         console.log(res);
         if(res.ok){
-            console.log("Signup Successful!")
+            console.log("Signup Successful!");
+            location.reload();
         } else {
             console.log("Signup failed!")
         }
